@@ -12,6 +12,10 @@ function handleMyRequest(request, response) {
       'Content-Type': 'application/json'
     })
     response.end(JSON.stringify(todos));
+  } else if (request.url === '/api/teapot') {
+    response.writeHead(418);
+    response.end('Goodbye')
+
   } else if (request.url === '/bye') {
     response.end('Goodbye')
   } else {
