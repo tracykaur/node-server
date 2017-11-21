@@ -16,7 +16,7 @@ function handleMyRequest(request, response) {
     response.end();
   }
 }
-
+// /simon tagging
 const server = http.createServer(handleMyRequest)
 
 console.log(`Server is running on port ${port}`)

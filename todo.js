@@ -1,12 +1,13 @@
 const http = require('http');
 const port = 3000;
 
-let todos = {
-  item :'wash clothes', done: false
-};
+let todos = [
+  {item :'wash clothes', done: false},
+  {item :'drink coffee', done:true}
+];
 
 function handleMyRequest(request, response) {
-  if (request.url === '/todos') {
+  if ((request.url === '/todos') && (request.method === 'GET')) {
     response.writeHead(200, {
       'Content-Type': 'application/json'
     })
