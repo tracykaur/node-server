@@ -4,9 +4,11 @@ const port = 3000;
 const bodyParser = require('body-parser');
 
 let todos = [
-  {item :'wash clothes', done: false},
-  {item :'drink coffee', done:true}
+  {id : 0,  item :'wash clothes', done: false},
+  {id : 1, item :'drink coffee', done:true}
 ];
+
+let id = 2;
 
 app.use(bodyParser.json())
 
@@ -15,7 +17,8 @@ app.get('/api/todos', (req, res) => {
 })
 
 app.post('/api/todos', (req, res) => {
-  todos.push(req.body.name);
+  req.body.id = id++; 
+  todos.push(req.body);
   res.send(todos);
 })
 
