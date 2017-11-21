@@ -7,7 +7,7 @@ let todos = [
 ];
 
 function handleMyRequest(request, response) {
-  if ((request.url === '/todos') && (request.method === 'GET')) {
+  if ((request.url === '/api/todos') && (request.method === 'GET')) {
     response.writeHead(200, {
       'Content-Type': 'application/json'
     })
