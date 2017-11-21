@@ -14,7 +14,19 @@ function handleMyRequest(request, response) {
     response.end(JSON.stringify(todos));
   } else if (request.url === '/api/teapot') {
     response.writeHead(418);
-    response.end('Goodbye')
+    response.end('Im a teapot')
+
+  } else if (request.method === "POST" && request.url === '/api/todos') {
+    response.writeHead(200);
+    let body = ""
+    request.on ("data", (chunk) => {
+      console.log (`body is ${chunk}`)
+      body += chunk
+    });
+    request.on ("end",()=>{
+      todos.push(JSON.parse(body));
+    });
+    response.end('Successful post')
 
   } else if (request.url === '/bye') {
     response.end('Goodbye')
